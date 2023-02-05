@@ -17,6 +17,6 @@
 ## Verify the communication between 2 pods
 Verify the two pods can communicate over the network.
 Then Run curl on the IP address of the cyberdyne-frontend Pod
-       kubectl get pods -o wide
-       kubectl exec testclient -- curl <cyberdyne-frontend_POD_IP>
+    kubectl get pods -o wide
+    kubectl exec testclient -- curl <cyberdyne-frontend_POD_IP>
 
