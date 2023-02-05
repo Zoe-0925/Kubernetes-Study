@@ -18,6 +18,11 @@ Tutorial in [Backup-restore-etcd](https://github.com/Zoe-0925/Kubernetes-Study/t
 - Restore etcd
 
 ## 5. Explore a Kubernetes cluster with kubectl
+Tutorial in [Explore-with-kubectl]()
+- Search a list of volumes with sorting
+- Run commands inside a pod inside a namespace
+- Create a Deployment Using a Spec File
+- Delete a service
 - Sample Command
 ``
 kubectl exec {pod-name} -n {namespace-name} -- {shell script}
