@@ -34,6 +34,7 @@ Run commands inside a pod inside a namespace
 ``
 kubectl delete service {service-name} -n {namespace-name}
 ``
+
 ## View resource usage
 ``
 kubectl top pod --sort.by {json-path} -selector {selector}
