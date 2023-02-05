@@ -12,4 +12,7 @@ Tutorial in [Kubernetes-namespaces.sh](https://github.com/Zoe-0925/Kubernetes-St
 ## 3. Upgrade Kubernetes with kubeadm
 Tutorial in [Upgrade-with-kubeadm](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Upgrade-with-kubeadm)
 
-## 4. 
+## 4. Backing up and Restoring Kubernetes Data in etcd
+Tutorial in [Backup-restore-etcd]()
+- Back up etcd
+- Restore etcd
