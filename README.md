@@ -1,0 +1,1 @@
+This repository contains the study notes for Kubernetes
