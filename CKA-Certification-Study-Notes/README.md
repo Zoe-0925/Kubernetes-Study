@@ -10,5 +10,5 @@ Tutorial in [Kubernetes Cluster Setup Using Kubeadm](https://github.com/Zoe-0925
 Tutorial in [Kubernetes-namespaces.sh](https://github.com/Zoe-0925/Kubernetes-Study/blob/main/CKA-Certification-Study-Notes/Kubernetes-namespaces.sh)
 
 ## 3. Upgrade Kubernetes with kubeadm
-Tutorial in [Upgrade-with-kubeadm]()
+Tutorial in [Upgrade-with-kubeadm](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Upgrade-with-kubeadm)
 
