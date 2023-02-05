@@ -85,4 +85,6 @@ Use YAML to
 ``
 
 ## Static Pods
-- 
+- Managed directly by the kubelet on a node, not by the Kubernetes API server.
+- Can run without an API server
+- Every static pod can have a mirror pod
