@@ -13,6 +13,9 @@ Tutorial in [Kubernetes-namespaces.sh](https://github.com/Zoe-0925/Kubernetes-St
 Tutorial in [Upgrade-with-kubeadm](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Upgrade-with-kubeadm)
 
 ## 4. Backing up and Restoring Kubernetes Data in etcd
-Tutorial in [Backup-restore-etcd]()
+Tutorial in [Backup-restore-etcd](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Backup-restore-etcd)
 - Back up etcd
 - Restore etcd
+
+## 5. Explore a Kubernetes cluster with kubectl
+- Sample Command: kubectl exec {pod-name} -n {namespace-name} -- {shell script}
