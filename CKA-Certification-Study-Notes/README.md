@@ -18,3 +18,7 @@ Performance: Swap space is much slower than physical memory, and accessing it ca
 Resource isolation: Kubernetes relies on cgroups to isolate resources for containers. Cgroups have limited support for swap and do not provide accurate control over the amount of swap used by containers.
 
 Interference with kubelet: The kubelet, the component in Kubernetes that manages containers, expects that the system's memory utilization matches the actual memory utilization. If swap is enabled, it can interfere with the kubelet's ability to accurately monitor memory usage and make decisions about which containers to kill in low-memory situations.
+
+
+### Part 2: Initialize the Cluster
+On the control plane node, execute the commands in Instantialize-clusters.sh
