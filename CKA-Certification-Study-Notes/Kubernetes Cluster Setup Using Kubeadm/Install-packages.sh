@@ -1,8 +1,10 @@
 #1. Create configuration file for containerd:
+# Write overlay and br_netfilter into the file.
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 br_netfilter
 EOF
+
 
 #2. Load modules:
 sudo modprobe overlay
@@ -14,6 +16,13 @@ net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 EOF
+
+#net.bridge.bridge-nf-call-iptables = 1 
+#  - enables netfilter on bridges to support iptables (firewall) rules.
+#net.ipv4.ip_forward = 1 
+#  - enables IPv4 forwarding which allows packets to be forwarded from one network interface to another.
+#net.bridge.bridge-nf-call-ip6tables = 1 
+#  - enables netfilter on bridges to support ip6tables (firewall) rules for IPv6.
 
 #4. Apply new settings:
 sudo sysctl --system
