@@ -67,11 +67,14 @@ Only run once at the startup to delay the startup
 ## Assigning a Kubernetes Pod to a Specific Node
 Use YAML to
 - Configure a pod to only run on a worker
+``
      spec:
           nodeSelector:
              external-auth-services: "true"
+``
 
 - Configure Deployment's Replica Pods to only run on a worker
+``
      spec:
           ...
           template:
@@ -79,4 +82,5 @@ Use YAML to
                spec:
                     nodeSelector:
                          external-auth-services: "true"
+``
 
