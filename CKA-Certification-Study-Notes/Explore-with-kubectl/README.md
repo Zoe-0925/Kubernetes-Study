@@ -62,4 +62,4 @@ kubectl top pod --sort.by {json-path} -selector {selector}
   - storage (using volumes)
 
 ## Init Containers
-To delay the startup
+Only run once at the startup to delay the startup
