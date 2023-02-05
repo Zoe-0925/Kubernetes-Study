@@ -84,3 +84,5 @@ Use YAML to
                          external-auth-services: "true"
 ``
 
+## Static Pods
+- 
