@@ -5,3 +5,8 @@ Tutorial in [Kubernetes Cluster Setup Using Kubeadm](https://github.com/Zoe-0925
 - Startup configurations
 - Install kubelet, kubectl, and kubeadm
 - Create a small cluster with 1 control plane and 2 worker nodes
+
+## 2. Kubernetes Namespaces
+Tutorial in [Kubernetes-namespaces.sh]()
+
+## 3.
