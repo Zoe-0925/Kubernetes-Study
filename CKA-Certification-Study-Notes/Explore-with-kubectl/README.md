@@ -88,3 +88,16 @@ Use YAML to
 - Managed directly by the kubelet on a node, not by the Kubernetes API server.
 - Can run without an API server
 - Every static pod can have a mirror pod
+
+## Deployment
+- Replicas
+- Selector
+  - by label
+  - to identify the replica pod
+- Template: to create replica pods
+- Scaling: Use yaml file to edit the replica number
+  - kubectl scale
+  ``kubectl scale deployment.v1.apps/beebox-web --replicas=5``
+- Rolling Update
+- Update deployment:
+``kubectl edit deployment {node-name}``
