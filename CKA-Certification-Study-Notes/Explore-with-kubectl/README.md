@@ -34,5 +34,3 @@ Run commands inside a pod inside a namespace
 ``
 kubectl delete service {service-name} -n {namespace-name}
 ``
-
-##

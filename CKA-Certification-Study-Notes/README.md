@@ -18,7 +18,7 @@ Tutorial in [Backup-restore-etcd](https://github.com/Zoe-0925/Kubernetes-Study/t
 - Restore etcd
 
 ## 5. Explore a Kubernetes cluster with kubectl
-Tutorial in [Explore-with-kubectl]()
+Tutorial in [Explore-with-kubectl](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Explore-with-kubectl)
 - Search a list of volumes with sorting
 - Run commands inside a pod inside a namespace
 - Create a Deployment Using a Spec File
@@ -27,3 +27,8 @@ Tutorial in [Explore-with-kubectl]()
 ``
 kubectl exec {pod-name} -n {namespace-name} -- {shell script}
 ``
+
+## 6. Controlling Access in Kubernetes with RBAC
+Tutorial in [Role-based-access-control]()
+- Create a Role
+- Bind the role to a user
