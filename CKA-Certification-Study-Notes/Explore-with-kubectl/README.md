@@ -39,3 +39,27 @@ kubectl delete service {service-name} -n {namespace-name}
 ``
 kubectl top pod --sort.by {json-path} -selector {selector}
 ``
+
+## Managing Resources
+- Use config map to store config
+- Use secrets to store senstive config
+- Manage container resources by 
+  - resource requests
+  - Resource limits
+- Monitor Container health with probes
+  - Liveliness probe
+  - Startup probe
+  - Readiness probe
+- Build self-healing pods using restart policies
+  - Always
+  - OnFailure
+  - Never
+
+## Create multi-container pods
+- Each pod has multiple containers
+- Containers can communicate with each other via
+  - network (using port if on the same pod)
+  - storage (using volumes)
+
+## Init Containers
+To delay the startup
