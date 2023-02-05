@@ -1,9 +1,9 @@
 # Explore a Kubernetes cluster with kubectl
 
 ## Search a list of volumes with sorting
-Syntax:\n
+    Syntax:
     ``kubectl get pv -- {options}``
-Ex) Get a list of persisted volumes, sorted by capacity:\n
+    Ex) Get a list of persisted volumes, sorted by capacity:
     ``kubectl get pv --sort-by=.spec.capacity.storage``
 
 ## Run commands inside a pod inside a namespace
