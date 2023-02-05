@@ -16,17 +16,11 @@ kubectl exec {pod-name} -n {namespace-name} -- {shell script}
 ``
 
 ## Create a Deployment Using a Spec File
-``
-kubectl apply -f /home/cloud_user/deployment.yml
-``
-\n
-``
-kubectl get deployments -n beebox-mobile
-``
-\n
-``
-kubectl get pods -n beebox-mobile
-``
+    ``kubectl apply -f /home/cloud_user/deployment.yml``
+
+    ``kubectl get deployments -n beebox-mobile``
+
+    ``kubectl get pods -n beebox-mobile``
 
 ## Delete a service
 ``
