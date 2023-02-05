@@ -21,3 +21,37 @@ spec:
       - ReadWriteOnce 
    hostPath: 
       path: /var/output
+
+
+## PersistentVolumeClaim
+apiVersion: v1 
+kind: PersistentVolumeClaim 
+metadata: 
+   name: host-pvc 
+spec: 
+   storageClassName: localdisk 
+   accessModes: 
+      - ReadWriteOnce 
+   resources: 
+      requests: 
+         storage: 100Mi
+
+
+## A Pod That Uses a PersistentVolume for Storage
+apiVersion: v1 
+kind: Pod 
+metadata: 
+   name: pv-pod 
+spec: 
+   containers: 
+       - name: busybox 
+         image: busybox 
+         command: ['sh', '-c', 'while true; do echo Success! > /output/success.txt; sleep 5; done'] 
+         volumeMounts: 
+            - name: pv-storage 
+              mountPath: /output 
+   volumes: 
+      - name: pv-storage 
+         persistentVolumeClaim: 
+            claimName: host-pvc
+      
