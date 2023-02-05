@@ -15,15 +15,15 @@
 
 ## kubectl create
 For already created objects, this command will NOT work.
-    kubectl create -f {file name}
+    ``kubectl create -f {file name}``
 
 ## kubectl apply
 For already created objects, this command will override the values.
-    kubectl apply -f {file name}
+    ``kubectl apply -f {file name}``
 
 ## kubectl exec
 Run commands inside a pod inside a namespace
-    kubectl exec {pod name} -n {namespace name} -c {container name} -- {shell script}
+    ``kubectl exec {pod name} -n {namespace name} -c {container name} -- {shell script}``
 
 ## Create a Deployment Using a Spec File
     kubectl apply -f /home/cloud_user/deployment.yml
