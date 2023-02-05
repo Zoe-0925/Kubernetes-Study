@@ -24,7 +24,7 @@ Interference with kubelet: The kubelet, the component in Kubernetes that manages
 On the control plane node, execute the commands in [Instantialize-clusters.sh](https://github.com/Zoe-0925/Kubernetes-Study/blob/main/CKA-Certification-Study-Notes/Kubernetes%20Cluster%20Setup%20Using%20Kubeadm/Instantialize-clusters.sh)
 
 ### Part 3: Install the Calico Network Add-On
-On the control plane node, execute the commands in [Install-Calico.sh]()
+On the control plane node, execute the commands in [Install-Calico.sh](https://github.com/Zoe-0925/Kubernetes-Study/blob/main/CKA-Certification-Study-Notes/Kubernetes%20Cluster%20Setup%20Using%20Kubeadm/Install-Calico.sh)
 
 ### Part 4: Join the Worker Nodes to the Cluster
-On each of the worker node, execute the commands in [Join-workers.sh]()
+On each of the worker node, execute the commands in [Join-workers.sh](https://github.com/Zoe-0925/Kubernetes-Study/blob/main/CKA-Certification-Study-Notes/Kubernetes%20Cluster%20Setup%20Using%20Kubeadm/Join-workers.sh)
