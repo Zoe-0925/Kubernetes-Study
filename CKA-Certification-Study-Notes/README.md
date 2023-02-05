@@ -19,6 +19,6 @@ Tutorial in [Backup-restore-etcd](https://github.com/Zoe-0925/Kubernetes-Study/t
 
 ## 5. Explore a Kubernetes cluster with kubectl
 - Sample Command
-``sh
+``
 kubectl exec {pod-name} -n {namespace-name} -- {shell script}
 ``
