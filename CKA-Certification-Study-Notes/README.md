@@ -7,6 +7,8 @@ Tutorial in [Kubernetes Cluster Setup Using Kubeadm](https://github.com/Zoe-0925
 - Create a small cluster with 1 control plane and 2 worker nodes
 
 ## 2. Kubernetes Namespaces
-Tutorial in [Kubernetes-namespaces.sh]()
+Tutorial in [Kubernetes-namespaces.sh](https://github.com/Zoe-0925/Kubernetes-Study/blob/main/CKA-Certification-Study-Notes/Kubernetes-namespaces.sh)
 
-## 3.
+## 3. Upgrade Kubernetes with kubeadm
+Tutorial in [Upgrade-with-kubeadm]()
+
