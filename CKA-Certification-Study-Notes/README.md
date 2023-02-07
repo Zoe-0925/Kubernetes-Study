@@ -29,6 +29,24 @@ kubectl exec {pod-name} -n {namespace-name} -- {shell script}
 ``
 
 ## 6. Controlling Access in Kubernetes with RBAC
-Tutorial in [Role-based-access-control]()
+Tutorial in [Role-based-access-control](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Role-based-access-control)
 - Create a Role
 - Bind the role to a user
+
+## 7. Networking
+Tutorial in [Networking](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Networking)
+- Kubernetes DNS
+- Networking Policies
+- Communication between 2 pods
+
+## 8. Services
+Tutorial in [Services](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Services)
+- Service Types
+- Discover Services with DNS
+- Managing Acess from Outside with Kubernetes Ingress
+
+## 9. Storage
+Tutorial in [Storage](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Storage)
+- Kubernetes Volumes
+- Persistent Volumes
+- Scaling Persisiten Volumes with Claim Expansion

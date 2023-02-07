@@ -17,7 +17,7 @@
 - persistentVolumeReclaimPolicy: Decides what to do after the persistent volumes are deleted
 - persistentVolumeClaim: Request for storage
 
-## Scaling Persisiten Volumes with Claim Expansion
+## Scaling Persistent Volumes with Claim Expansion
 - Claim expansion = the process of increasing the size of an existing PVC after it has been created. 
 - By updating the PVC definition with the new size and then reapplying it to the cluster. 
 - The change in the size of the PVC triggers the resizing of the underlying PV, allowing the application to use the additional storage.
