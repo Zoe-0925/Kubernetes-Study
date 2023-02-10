@@ -1,3 +1,5 @@
+### Part 1: Config File for Containerd
+
 #1. Create configuration file for containerd:
 # Write overlay and br_netfilter into the file.
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
@@ -27,6 +29,8 @@ EOF
 #4. Apply new settings:
 sudo sysctl --system
 
+### Part 2: Install Containerd
+
 #5. Install containerd:
 sudo apt-get update && sudo apt-get install -y containerd.io
 
@@ -41,6 +45,8 @@ sudo systemctl restart containerd
 
 #9. Verify that containerd is running:
 sudo systemctl status containerd
+
+### Part 3: Install Dependency Packages (kubeadm, kubectl, kubelet)
 
 #10. Disable swap:
 sudo swapoff -a
