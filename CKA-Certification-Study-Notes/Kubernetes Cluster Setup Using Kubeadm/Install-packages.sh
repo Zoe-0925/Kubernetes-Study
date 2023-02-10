@@ -7,7 +7,6 @@ overlay
 br_netfilter
 EOF
 
-
 #2. Load modules:
 sudo modprobe overlay
 sudo modprobe br_netfilter
@@ -29,6 +28,8 @@ EOF
 #4. Apply new settings:
 sudo sysctl --system
 
+
+
 ### Part 2: Install Containerd
 
 #5. Install containerd:
@@ -45,6 +46,8 @@ sudo systemctl restart containerd
 
 #9. Verify that containerd is running:
 sudo systemctl status containerd
+
+
 
 ### Part 3: Install Dependency Packages (kubeadm, kubectl, kubelet)
 
