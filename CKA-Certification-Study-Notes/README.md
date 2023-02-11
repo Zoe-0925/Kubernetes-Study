@@ -167,3 +167,32 @@ Create the role binding:
 
     kubectl create -f rb-pod-reader.yml
 
+## Backup and Restore
+### Back Up the etcd Data
+    ssh etcd1
+
+    ETCDCTL_API=3 etcdctl snapshot save /home/cloud_user/etcd_backup.db \
+    --endpoints=https://etcd1:2379 \
+    --cacert=/home/cloud_user/etcd-certs/etcd-ca.pem \
+    --cert=/home/cloud_user/etcd-certs/etcd-server.crt \
+    --key=/home/cloud_user/etcd-certs/etcd-server.key
+
+### Restore the etcd Data
+    sudo systemctl stop etcd
+
+    sudo rm -rf /var/lib/etcd
+
+    sudo ETCDCTL_API=3 etcdctl snapshot restore /home/cloud_user/etcd_backup.db \
+    --initial-cluster etcd-restore=https://etcd1:2380 \
+    --initial-advertise-peer-urls https://etcd1:2380 \
+    --name etcd-restore \
+    --data-dir /var/lib/etcd
+
+    # Set the DB ownership
+    sudo chown -R etcd:etcd /var/lib/etcd
+
+    sudo systemctl start etcd
+
+    ETCDCTL_API=3 etcdctl get cluster.name \
+    --endpoints=https://etcd1:2379 \
+
