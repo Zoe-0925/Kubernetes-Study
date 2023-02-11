@@ -166,6 +166,9 @@ Create the role binding:
     kubectl create -f rb-pod-reader.yml
 
 ## Backup and Restore
+Useful Link
+https://devopscube.com/backup-etcd-restore-kubernetes/
+
 ### Back Up the etcd Data
     ssh etcd1
 
