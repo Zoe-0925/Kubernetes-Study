@@ -163,5 +163,7 @@ Define the RoleBinding
       name: pod-reader
       apiGroup: rbac.authorization.k8s.io
 
+Create the role binding:
+
     kubectl create -f rb-pod-reader.yml
 
