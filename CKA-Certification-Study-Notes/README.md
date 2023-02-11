@@ -127,6 +127,7 @@ Define an Ingress in the Yaml File:
 ### Create a ClusterRole That Provides Read Access to Pods
     vi pod-reader.yml
 Define the ClusterRole in the yaml file
+
     apiVersion: rbac.authorization.k8s.io/v1
     kind: ClusterRole
     metadata:
