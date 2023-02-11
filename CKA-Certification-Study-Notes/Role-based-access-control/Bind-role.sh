@@ -16,6 +16,16 @@ roleRef:
   name: pod-reader
   apiGroup: rbac.authorization.k8s.io
 
+### Note that to replace the dev User with a service account, 
+### Use the following commands:
+subjects:
+- kind: ServiceAccount
+  name: webautomation
+roleRef:
+  kind: ClusterRole
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+
 #Save and exit the file by pressing Escape followed by 
 :wq
 
