@@ -22,6 +22,7 @@ Tutorial in [Kubernetes-namespaces.sh](https://github.com/Zoe-0925/Kubernetes-St
 ### Edit the web-frontend Deployment to Expose the HTTP Port
     kubectl edit deployment -n web web-frontend
 Yaml File:
+
     spec:
       containers:
         - image: nginx:1.14.2
