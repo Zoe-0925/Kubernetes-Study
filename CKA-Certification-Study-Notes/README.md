@@ -238,3 +238,22 @@ Create the role binding:
 
     kubectl uncordon workerName
 
+## Label
+### Create a Pod That Will Only Be Scheduled on Nodes with a Specific Label
+    kubectl label nodes acgk8s-worker2 disk=fast
+
+    vim fast-nginx.yml
+
+In the Yaml File:
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: fast-nginx
+      namespace: dev
+    spec:
+      nodeSelector:
+        disk: fast
+      containers:
+      - name: nginx
+        image: nginx
+
