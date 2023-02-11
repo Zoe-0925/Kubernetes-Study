@@ -303,6 +303,7 @@ Create the persistent volume
     kubectl create -f host-storage-pv.yml
 
 Check the status of the persistent volume
+
     kubectl get pv host-storage-pv
 
 
