@@ -151,8 +151,8 @@ Define the RoleBinding via rb-pod-reader.yml
       name: rb-pod-reader
       namespace: web
     subjects:
-        - kind: ServiceAccount
-          name: webautomation
+      - kind: ServiceAccount
+      name: webautomation
     roleRef:
       kind: ClusterRole
       name: pod-reader
@@ -451,3 +451,4 @@ Create and verify
     kubectl create -f logging-sidecar.yml
     kubectl get pods -n baz
     kubectl logs logging-sidecar -n baz -c sidecar
+
