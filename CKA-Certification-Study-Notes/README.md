@@ -401,7 +401,7 @@ Create the network policy
 
 ## Container and Pod config
 ### Create a Multi-Container Pod
-create a multi.yml
+create a Multi-Container Pod via multi.yml
 
     apiVersion: v1
     kind: Pod
@@ -415,3 +415,39 @@ create a multi.yml
       - name: redis
         image: redis
 
+Create and verify
+
+    kubectl create -f multi.yml
+    kubectl get pods -n baz
+
+## Create a Pod Which Uses a Sidecar to Expose the Main Container's Log File to Stdout
+Create the pod via logging-sidecar.yml
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: logging-sidecar
+      namespace: baz
+    spec:
+      containers:
+      - name: busybox1
+        image: busybox
+        command: ['sh', '-c', 'while true; do echo Logging data > /output/output.log; sleep 5; done']
+        volumeMounts:
+        - name: sharedvol
+          mountPath: /output
+      - name: sidecar
+        image: busybox
+        command: ['sh', '-c', 'tail -f /input/output.log']
+        volumeMounts:
+        - name: sharedvol
+          mountPath: /input
+      volumes:
+      - name: sharedvol
+        emptyDir: {}
+
+Create and verify
+
+    kubectl create -f logging-sidecar.yml
+    kubectl get pods -n baz
+    kubectl logs logging-sidecar -n baz -c sidecar
