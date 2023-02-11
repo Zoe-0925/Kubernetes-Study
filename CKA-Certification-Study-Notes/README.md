@@ -79,8 +79,7 @@ In the Yaml File, port 80 is exposed
         - containerPort: 80
 
 ### Create a Service to Expose the web-frontend Deployment's Pods Externally
-    vi web-frontend-svc.yml
-Define the service in the Yaml file:
+Define the service via web-frontend-svc.yml
 
     apiVersion: v1
     kind: Service
@@ -104,8 +103,7 @@ Don't forget to create the service by:
     kubectl scale deployment web-frontend -n web --replicas=5
 
 ### Create an Ingress That Maps to the New Service
-    vi web-frontend-ingress.yml
-Define an Ingress in the Yaml File:
+Define an Ingress via web-frontend-ingress.yml
 
     apiVersion: networking.k8s.io/v1
     kind: Ingress
@@ -129,8 +127,7 @@ Define an Ingress in the Yaml File:
     kubectl create sa webautomation -n web
 
 ### Create a ClusterRole That Provides Read Access to Pods
-    vi pod-reader.yml
-Define the ClusterRole in the yaml file
+Define the ClusterRole via pod-reader.yml
 
     apiVersion: rbac.authorization.k8s.io/v1
     kind: ClusterRole
@@ -146,9 +143,7 @@ Creat the ClusterRole:
     kubectl create -f pod-reader.yml
 
 ### Bind the ClusterRole to the Service Account to Only Read Pods in the web Namespace
-    vi rb-pod-reader.yml
-
-Define the RoleBinding
+Define the RoleBinding via rb-pod-reader.yml
 
     apiVersion: rbac.authorization.k8s.io/v1
     kind: RoleBinding
