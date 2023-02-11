@@ -306,4 +306,61 @@ Check the status of the persistent volume
 
     kubectl get pv host-storage-pv
 
+### Create a Pod That Uses the PersistentVolume for Storage
+    vim host-storage-pvc.yml
+
+Specify the PersistentVolumeClaim
+
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: host-storage-pvc
+      namespace: auth
+    spec:
+      storageClassName: localdisk
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 100Mi
+
+Create the PersistentVolumeClaim
+
+    kubectl create -f host-storage-pvc.yml
+
+Check the status of the PersistentVolumeClaim and Verify that the claim is bound to the volume
+
+    kubectl get pv
+    kubectl get pvc -n auth
+
+Start specifying the pod that uses the persistent volume
+
+    vim pv-pod.yml
+
+Specify the pod
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pv-pod
+      namespace: auth
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'while true; do echo success > /output/output.log; sleep 5; done']
+        volumeMounts:
+        - name: pv-storage
+          mountPath: /output
+      volumes:
+      - name: pv-storage
+        persistentVolumeClaim:
+          claimName: host-storage-pvc
+
+Create the pod
+
+    kubectl create -f pv-pod.yml
+
+### Expand the PersistentVolumeClaim
+    kubectl edit pvc host-storage-pvc -n auth
 
