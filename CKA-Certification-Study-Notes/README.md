@@ -258,7 +258,7 @@ Create the file
 
 ## PersistentVolume
 ### Create a PersistentVolume
-Specify the local disk via vim localdisk.yml
+Specify the local disk via localdisk.yml
 
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
