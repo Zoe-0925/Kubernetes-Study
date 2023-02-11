@@ -262,3 +262,43 @@ Create the file
 
     kubectl get pod fast-nginx -n dev -o wide
 
+## PersistentVolume
+### Create a PersistentVolume
+    vim localdisk.yml
+Specify the local disk
+
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: localdisk
+    provisioner: kubernetes.io/no-provisioner
+    allowVolumeExpansion: true
+
+Create the local disk
+    kubectl create -f localdisk.yml
+
+Then begin specifying the persistent volume
+    vim host-storage-pv.yml
+
+Specify the persisten volume
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+     name: host-storage-pv
+    spec:
+      storageClassName: localdisk
+      persistentVolumeReclaimPolicy: Recycle
+      capacity:
+        storage: 1Gi
+      accessModes:
+        - ReadWriteOnce
+      hostPath:
+        path: /etc/data
+
+Create the persistent volume
+    kubectl create -f host-storage-pv.yml
+
+Check the status of the persistent volume
+    kubectl get pv host-storage-pv
+
+
