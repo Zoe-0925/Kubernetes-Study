@@ -6,6 +6,16 @@ Tutorial in [Kubernetes Cluster Setup Using Kubeadm](https://github.com/Zoe-0925
 - Install kubelet, kubectl, and kubeadm
 - Create a small cluster with 1 control plane and 2 worker nodes
 
+### Count the Number of Nodes That Are Ready to Run Normal Workloads
+    kubectl get nodes
+    kubectl describe node nodeName
+
+### Retrieve Error Messages from a Container Log
+    kubectl logs -n namespace nodeName -c proc | grep ERROR
+
+### Find the Pod with a Label of app=auth in the Web Namespace That Is Utilizing the Most CPU
+    kubectl top pod -n web --sort-by cpu --selector app=auth
+
 ## 2. Kubernetes Namespaces
 Tutorial in [Kubernetes-namespaces.sh](https://github.com/Zoe-0925/Kubernetes-Study/blob/main/CKA-Certification-Study-Notes/Kubernetes-namespaces.sh)
 
