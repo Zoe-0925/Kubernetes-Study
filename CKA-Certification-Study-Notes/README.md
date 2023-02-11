@@ -198,6 +198,9 @@ Create the role binding:
     --key=/home/cloud_user/etcd-certs/etcd-server.key
 
 ## Upgradation
+Useful Link
+https://devopscube.com/upgrade-kubernetes-cluster-kubeadm/
+
 ### Upgrade All Kubernetes Components on the Control Plane Node
     sudo apt-get update && \
     sudo apt-get install -y --allow-change-held-packages kubeadm=1.22.2-00
