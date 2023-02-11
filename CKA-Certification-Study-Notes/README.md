@@ -364,3 +364,57 @@ Create the pod
 ### Expand the PersistentVolumeClaim
     kubectl edit pvc host-storage-pvc -n auth
 
+## Network Policy Config
+### Create a Networkpolicy That Denies All Access to the Maintenance Pod
+Check the foo namespace and Check the maintenance pod's labels
+    kubectl get pods -n foo
+    kubectl describe pod maintenance -n foo
+    vim np-maintenance.yml
+
+Specify the network policy:
+
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: np-maintenance
+      namespace: foo
+    spec:
+      podSelector:
+        matchLabels:
+          app: maintenance
+      policyTypes:
+      - Ingress
+      - Egress
+
+Create the network policy for deny-all-traffic
+
+    kubectl create -f np-maintenance.yml
+
+### Create a Networkpolicy That Allows All Pods in the users-backend Namespace to Communicate with Each Other Only on a Specific Port
+Label the users-backend namespace then create the network policy
+    kubectl label namespace users-backend app=users-backend
+    vim np-users-backend-80.yml
+
+Specify the network policy
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: np-users-backend-80
+      namespace: users-backend
+    spec:
+      podSelector: {}
+      policyTypes:
+      - Ingress
+      ingress:
+      - from:
+        - namespaceSelector:
+            matchLabels:
+              app: users-backend
+        ports:
+        - protocol: TCP
+          port: 80
+
+Create the network policy
+
+    kubectl create -f np-users-backend-80.yml
+
