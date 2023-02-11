@@ -19,6 +19,15 @@ Tutorial in [Kubernetes Cluster Setup Using Kubeadm](https://github.com/Zoe-0925
 ## 2. Kubernetes Namespaces
 Tutorial in [Kubernetes-namespaces.sh](https://github.com/Zoe-0925/Kubernetes-Study/blob/main/CKA-Certification-Study-Notes/Kubernetes-namespaces.sh)
 
+### Edit the web-frontend Deployment to Expose the HTTP Port
+    kubectl edit deployment -n web web-frontend
+Yaml File:
+    spec:
+      containers:
+        - image: nginx:1.14.2
+      ports:
+        - containerPort: 80
+
 ## 3. Upgrade Kubernetes with kubeadm
 Tutorial in [Upgrade-with-kubeadm](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Upgrade-with-kubeadm)
 
