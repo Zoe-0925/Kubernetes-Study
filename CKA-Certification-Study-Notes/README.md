@@ -55,6 +55,8 @@ Tutorial in [Storage](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA
 - Scaling Persisiten Volumes with Claim Expansion
 
 ## 10. Exam Cheat Sheet
+
+## Inspect the Pods
 ### Count the Number of Nodes That Are Ready to Run Normal Workloads
     kubectl get nodes
     kubectl describe node nodeName
@@ -65,6 +67,7 @@ Tutorial in [Storage](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA
 ### Find the Pod with a Label of app=auth in the Web Namespace That Is Utilizing the Most CPU
     kubectl top pod -n web --sort-by cpu --selector app=auth
 
+## Expose the deployment
 ### Edit the web-frontend Deployment to Expose the HTTP Port
     kubectl edit deployment -n web web-frontend
 In the Yaml File, port 80 is exposed
@@ -121,6 +124,7 @@ Define an Ingress in the Yaml File:
             port:
               number: 80
 
+## Service Account and RBAC
 ### Create a Service Account
     kubectl create sa webautomation -n web
 
@@ -136,3 +140,26 @@ Define the ClusterRole in the yaml file
     - apiGroups: [""]
       resources: ["pods"]
       verbs: ["get", "watch", "list"]
+
+Creat the ClusterRole:
+
+    kubectl create -f pod-reader.yml
+
+### Bind the ClusterRole to the Service Account to Only Read Pods in the web Namespace
+    vi rb-pod-reader.yml
+
+Define the RoleBinding
+
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: rb-pod-reader
+      namespace: web
+    subjects:
+        - kind: ServiceAccount
+          name: webautomation
+    roleRef:
+      kind: ClusterRole
+      name: pod-reader
+      apiGroup: rbac.authorization.k8s.io
+
