@@ -275,12 +275,15 @@ Specify the local disk
     allowVolumeExpansion: true
 
 Create the local disk
+
     kubectl create -f localdisk.yml
 
 Then begin specifying the persistent volume
+
     vim host-storage-pv.yml
 
 Specify the persisten volume
+
     apiVersion: v1
     kind: PersistentVolume
     metadata:
@@ -296,6 +299,7 @@ Specify the persisten volume
         path: /etc/data
 
 Create the persistent volume
+
     kubectl create -f host-storage-pv.yml
 
 Check the status of the persistent volume
