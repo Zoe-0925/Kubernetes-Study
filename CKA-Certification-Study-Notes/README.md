@@ -242,9 +242,8 @@ Create the role binding:
 ### Create a Pod That Will Only Be Scheduled on Nodes with a Specific Label
     kubectl label nodes acgk8s-worker2 disk=fast
 
-    vim fast-nginx.yml
+Specify the pod via fast-nginx.yml
 
-In the Yaml File:
     apiVersion: v1
     kind: Pod
     metadata:
@@ -264,8 +263,7 @@ Create the file
 
 ## PersistentVolume
 ### Create a PersistentVolume
-    vim localdisk.yml
-Specify the local disk
+Specify the local disk via vim localdisk.yml
 
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
@@ -278,11 +276,7 @@ Create the local disk
 
     kubectl create -f localdisk.yml
 
-Then begin specifying the persistent volume
-
-    vim host-storage-pv.yml
-
-Specify the persisten volume
+Specify the persisten volume via host-storage-pv.yml
 
     apiVersion: v1
     kind: PersistentVolume
@@ -307,9 +301,7 @@ Check the status of the persistent volume
     kubectl get pv host-storage-pv
 
 ### Create a Pod That Uses the PersistentVolume for Storage
-    vim host-storage-pvc.yml
-
-Specify the PersistentVolumeClaim
+Specify the PersistentVolumeClaim via host-storage-pvc.yml
 
     apiVersion: v1
     kind: PersistentVolumeClaim
@@ -333,11 +325,7 @@ Check the status of the PersistentVolumeClaim and Verify that the claim is bound
     kubectl get pv
     kubectl get pvc -n auth
 
-Start specifying the pod that uses the persistent volume
-
-    vim pv-pod.yml
-
-Specify the pod
+Specify the pod that uses the persistent volume via pv-pod.yml
 
     apiVersion: v1
     kind: Pod
@@ -369,9 +357,8 @@ Create the pod
 Check the foo namespace and Check the maintenance pod's labels
     kubectl get pods -n foo
     kubectl describe pod maintenance -n foo
-    vim np-maintenance.yml
 
-Specify the network policy:
+Specify the network policy via np-maintenance.yml
 
     apiVersion: networking.k8s.io/v1
     kind: NetworkPolicy
@@ -391,11 +378,10 @@ Create the network policy for deny-all-traffic
     kubectl create -f np-maintenance.yml
 
 ### Create a Networkpolicy That Allows All Pods in the users-backend Namespace to Communicate with Each Other Only on a Specific Port
-Label the users-backend namespace then create the network policy
+Label the users-backend namespace
     kubectl label namespace users-backend app=users-backend
-    vim np-users-backend-80.yml
 
-Specify the network policy
+Specify the network policy via np-users-backend-80.yml
     apiVersion: networking.k8s.io/v1
     kind: NetworkPolicy
     metadata:
@@ -417,4 +403,20 @@ Specify the network policy
 Create the network policy
 
     kubectl create -f np-users-backend-80.yml
+
+## Container and Pod config
+### Create a Multi-Container Pod
+create a multi.yml
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: multi
+      namespace: baz
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+      - name: redis
+        image: redis
 
