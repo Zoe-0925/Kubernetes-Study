@@ -1,5 +1,10 @@
 # Certified Kubernetes Administrator (CKA) Study Notes
 
+## Kubernetes Architecture
+https://devopscube.com/kubernetes-architecture-explained/
+
+
+
 ## 1. Kubernetes Cluster Setup Using Kubeadm
 Tutorial in [Kubernetes Cluster Setup Using Kubeadm](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Kubernetes%20Cluster%20Setup%20Using%20Kubeadm)
 - Startup configurations
