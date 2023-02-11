@@ -21,13 +21,35 @@ Tutorial in [Kubernetes-namespaces.sh](https://github.com/Zoe-0925/Kubernetes-St
 
 ### Edit the web-frontend Deployment to Expose the HTTP Port
     kubectl edit deployment -n web web-frontend
-Yaml File:
+In the Yaml File, port 80 is exposed
 
     spec:
       containers:
         - image: nginx:1.14.2
       ports:
         - containerPort: 80
+
+### Create a Service to Expose the web-frontend Deployment's Pods Externally
+    vi web-frontend-svc.yml
+Define the service in the Yaml file:
+
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: web-frontend-svc
+      namespace: web
+    spec:
+      type: NodePort
+      selector:
+        app: web-frontend
+      ports:
+      - protocol: TCP
+        port: 80
+        targetPort: 80
+        nodePort: 30080
+Don't forget to create the service by:
+    
+    kubectl create -f web-frontend-svc.yml
 
 ## 3. Upgrade Kubernetes with kubeadm
 Tutorial in [Upgrade-with-kubeadm](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Upgrade-with-kubeadm)
