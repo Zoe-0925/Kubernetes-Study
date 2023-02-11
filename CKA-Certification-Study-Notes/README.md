@@ -257,3 +257,8 @@ In the Yaml File:
       - name: nginx
         image: nginx
 
+Create the file
+    kubectl create -f fast-nginx.yml
+
+    kubectl get pod fast-nginx -n dev -o wide
+
