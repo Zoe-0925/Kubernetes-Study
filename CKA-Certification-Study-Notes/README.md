@@ -51,6 +51,30 @@ Don't forget to create the service by:
     
     kubectl create -f web-frontend-svc.yml
 
+### Scale Up the Web Frontend Deployment
+    kubectl scale deployment web-frontend -n web --replicas=5
+
+### Create an Ingress That Maps to the New Service
+    vi web-frontend-ingress.yml
+Define an Ingress in the Yaml File:
+
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: web-frontend-ingress
+      namespace: web
+    spec:
+      rules:
+      - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web-frontend-svc
+            port:
+              number: 80
+
 ## 3. Upgrade Kubernetes with kubeadm
 Tutorial in [Upgrade-with-kubeadm](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Upgrade-with-kubeadm)
 
