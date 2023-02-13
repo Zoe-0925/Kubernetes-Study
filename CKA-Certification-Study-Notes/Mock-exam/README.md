@@ -12,11 +12,12 @@
 
 ## Question 2
 ### Create a single pod
-#### Image Name: image_name
-#### Namespace: default 
-#### Pod Name: pod-1
-#### Container Name: pod1-container
-#### This pod should only be scheduled on a master node.
+- Image Name: image_name
+- Namespace: default 
+- Pod Name: pod-1
+- Container Name: pod1-container
+- This pod should only be scheduled on a master node.
+
     kubectl run pod1 --image=image_name dry-run=client -o yaml > question2.yaml
 
 Then open the yaml file and edit the variable names.
@@ -53,5 +54,45 @@ The reason for this is to ensure that the control plane components, which are cr
 
     kubectl edit statefulsets -n namespaceName
 
+    kubectl get pods -n namespaceName
 
+## Question 4
+### Create a single pod
+Image: imageName
+Configure a liveliness probe which simply runs true
+Configure a readiness probe which does check if the url is reachable. Use
+
+    wget -T2 -O-url
+
+## Question 5
+### Write a command into a file to list all pods sorted by age (metadata.creationTimestamp) - use kubectl sorting
+    echo 'kubectl get pods -A --sort-by metadata.creationTimestamp' > file1.sh
+
+    bash file1.sh
+
+### Write a second comment into a file to list all pods sorted by field metadata.uid - use kubectl sorting
+    echo 'kubectl get pods -A --sort-by metadata.uid' > file2.sh
+
+    bash file2.sh
+
+## Question 6
+### Create a new PersistentVolume named pv-name.
+- Capacity: 2Gi
+- hostPath: myHostPath
+- No storageClassName defined
+
+    vi pv.yaml
+
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: pv-name
+    spec:
+      capacity:
+        storage: 2Gi
+      storageClassName: ""
+      volumes:
+        - name: vol
+        hostPath:
+          path: myHostPath
 
