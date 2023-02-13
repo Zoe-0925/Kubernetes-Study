@@ -269,3 +269,69 @@ Run on all nodes: master & worker
             memory: 10Mi
 
 ## Question 12
+### Create a deployment named "deploy-important"
+label: myLabel
+replicas: 3
+multi-container: 1 container with image1, another container with image 2
+
+So, 3 nodes and 2 workers running. The 3rd node not running.
+Simulate the daemonset with deployments and fixed replicas.
+
+Containe 2 and 3 have command requirements.
+
+The last empty container uses emptyDir
+
+    kubectl run multi-container-playground --image imageName --dry-run=client -o yaml > question12.yaml
+
+    apiVersion: batch/v1
+    kind: Pod
+    metadata:
+      name: multi-container-playground
+      creationTimestamp: null
+      labels: 
+        run: multi-container-playground
+    spec:
+      volumes:
+      - name: cache volume
+        emptyDir: {}
+      containers: 
+      - image: image1
+        name: c1
+        volumeMounts: 
+        - mountPath: path1
+          name: vm1
+
+      - image: image2
+        name: c2
+        command: command2
+        volumeMounts: 
+        - mountPath: path2
+          name: vm2
+  
+      - image: image3
+        name: c3
+        command: command3
+        volumeMounts: 
+        - mountPath: path3
+          name: vm3
+
+## Question 13
+### Find out information about a cluster
+How many master nodes are available?
+How many worker nodes are available?
+What is the service CIDR? (service-cluster-ip-range) . ---> An IP address
+Which networking and (or CNI Plugin) is configured and where is the config file?
+Which suffic will static pods have that run on cluster1-worker1?
+
+    kubectl get nodes
+
+    kubectl get pods -n namespaceName
+
+Check all objects running inside the namespace.
+Exlcude etcd, scheduler, proxy and you will find the CNI.
+
+    kubectl describe pod podName -n namespaceName
+
+    # Get configMap
+    kubectl get cm -n namespaceName
+
