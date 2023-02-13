@@ -43,4 +43,15 @@ Then create the file:
 
 ### Explain why this pod is not scheduled to master by default
 Because taints are applied to master by default.
+The reason for this is to ensure that the control plane components, which are critical to the functioning of the cluster, are isolated from the workloads running in the cluster. 
+
+## Question 3
+### There are 2 pods named name-* in the namespace namespaceName. Scale the Pod down to 1 replica
+    kubectl get all -n namespaceName
+
+    kubectl get statefulsets -n namespaceName
+
+    kubectl edit statefulsets -n namespaceName
+
+
 
