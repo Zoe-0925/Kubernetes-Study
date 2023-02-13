@@ -117,3 +117,32 @@ Configure a readiness probe which does check if the url is reachable. Use
           requests:
             storage: 2Gi
 
+    kubectl apply -f pvc.yaml
+
+### Create a deployment in namespacce namespaceName
+- deployment name: deploymentName
+- Mount that volume at path-to-mount
+- Image for the pod: imageName
+
+    kubectl create deployment deploymentName -n namespaceName --image imageName --dry-run=client -o yaml > question6.yaml
+
+Dry run; print the corresponding API objects without creating them.
+
+    vi question6.yaml
+
+    #Add pv
+    spec:
+      volumes:
+        - name: pv
+          persistentVolumeClaim: 
+            claimName: pvc
+
+    #Add pvc
+    containers: 
+      - image: imageName
+        name: httpd
+        volumeMounts: 
+          - mountPath: path-to-mount
+            name: pvc
+
+
