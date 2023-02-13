@@ -48,6 +48,7 @@ The reason for this is to ensure that the control plane components, which are cr
 
 ## Question 3
 ### There are 2 pods named name-* in the namespace namespaceName. Scale the Pod down to 1 replica
+    
     kubectl get all -n namespaceName
 
     kubectl get statefulsets -n namespaceName
@@ -66,11 +67,13 @@ Configure a readiness probe which does check if the url is reachable. Use
 
 ## Question 5
 ### Write a command into a file to list all pods sorted by age (metadata.creationTimestamp) - use kubectl sorting
+    
     echo 'kubectl get pods -A --sort-by metadata.creationTimestamp' > file1.sh
 
     bash file1.sh
 
 ### Write a second comment into a file to list all pods sorted by field metadata.uid - use kubectl sorting
+    
     echo 'kubectl get pods -A --sort-by metadata.uid' > file2.sh
 
     bash file2.sh
@@ -81,6 +84,7 @@ Configure a readiness probe which does check if the url is reachable. Use
 - hostPath: myHostPath
 - accessMode: readWriteOnce
 - No storageClassName defined
+
 
     vi pv.yaml
 
@@ -99,10 +103,10 @@ Configure a readiness probe which does check if the url is reachable. Use
         path: myHostPath
 
 ### Create a new PersistentVolumeClaim in namespace namespaceName
-- Storage: 2Gi
-- accessMode: readWriteOnce
-- No storageClassName
-- Bound to the PV correctly
+Storage: 2Gi
+accessMode: readWriteOnce
+No storageClassName
+Bound to the PV correctly
 
     apiVersion: v1
     kind: PersistentVolumeClaim
@@ -145,4 +149,52 @@ Dry run; print the corresponding API objects without creating them.
           - mountPath: path-to-mount
             name: pvc
 
+## Question 7
+### Show node resource usage without a metrics server
+    kubectl top node
 
+### Show pod and their container resource usage without a metrics server
+    kubectl top pod
+    
+## Question 8
+### SSH into the master node
+using `ssh cluster1-master1`
+#### Check how the master components are installed/started on the master node.
+Including
+- kubelet
+- kube-apiserver
+- kube-scheduler
+- kube-controller-manager
+- etcd
+- DNS
+#### Write the findings into a file
+
+## Question 9
+### ssh into the master node
+    ssh cluster2-master1
+
+#### Temporarily stop the kube-scheduler
+#### Allow the kube-scheduler to be restarted later if needed
+    # Find the kube-scheduler.yaml file
+    cd /etc/kubernetes/manifests
+
+    cd ..
+    pwd
+    mv /etc/kubernetes/manifests/kube-scheduler.yaml /etc/kubernetes
+
+### Create a single pod named manual-schedule of image imageName1.
+#### Confirm it's created but not scheduled on any pod
+#### Manually scehdule that pod on node. Make sure it's running.
+    kubectl run manual-schedule --image==imageName --dry-run=client -o yaml > question9.yaml
+
+Change the pod name and image name via the yaml file edit.
+
+    kubectl apply -f question9.yaml
+
+    # Verify
+    kubectl get pods -w
+
+### Start the kube-scheduler again and confirm it's running correctly by 
+#### creating a second pod named manual-scheduled-pod of image imageName2.
+#### Check the pod is running on cluster2-worker1
+    
