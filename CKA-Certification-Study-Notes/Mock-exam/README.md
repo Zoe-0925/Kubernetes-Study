@@ -80,11 +80,10 @@ Configure a readiness probe which does check if the url is reachable. Use
 
 ## Question 6
 ### Create a new PersistentVolume named pv-name.
-- Capacity: 2Gi
-- hostPath: myHostPath
-- accessMode: readWriteOnce
-- No storageClassName defined
-
+Capacity: 2Gi
+hostPath: myHostPath
+accessMode: readWriteOnce
+No storageClassName defined
 
     vi pv.yaml
 
