@@ -79,6 +79,7 @@ Configure a readiness probe which does check if the url is reachable. Use
 ### Create a new PersistentVolume named pv-name.
 - Capacity: 2Gi
 - hostPath: myHostPath
+- accessMode: readWriteOnce
 - No storageClassName defined
 
     vi pv.yaml
@@ -90,9 +91,29 @@ Configure a readiness probe which does check if the url is reachable. Use
     spec:
       capacity:
         storage: 2Gi
-      storageClassName: ""
-      volumes:
-        - name: vol
-        hostPath:
-          path: myHostPath
+      volumeMode: Filesystem
+      accessMode: 
+        - readWriteOnce
+      persistentVolumeReclaimPolicy: Recycle
+      hostPath:
+        path: myHostPath
+
+### Create a new PersistentVolumeClaim in namespace namespaceName
+- Storage: 2Gi
+- accessMode: readWriteOnce
+- No storageClassName
+- Bound to the PV correctly
+
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: myclaim
+      namespace: namespaceName
+    spec:
+        accessModes:
+          - ReadWriteOnce
+        volumeMode: Filesystem
+        resources:
+          requests:
+            storage: 2Gi
 
