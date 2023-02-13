@@ -196,4 +196,44 @@ Change the pod name and image name via the yaml file edit.
 ### Start the kube-scheduler again and confirm it's running correctly by 
 #### creating a second pod named manual-scheduled-pod of image imageName2.
 #### Check the pod is running on cluster2-worker1
-    
+    kubectl run manual-schedule2 image=imageName2
+
+    kubectl get pods -w
+
+## Question 10
+### Create a new Service Account processer in namespace namespaceName
+### Create a role and role binding both named as processor as well
+#### These should allow the new SA to only create Secrets and ConfigMap in the namespace
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: processer
+      namespace: namespaceName
+
+    ---
+
+    apiVersion: v1
+    kind: Role
+    metadata:
+      name: processer
+      namespace: namespaceName
+    rules:
+    - apiGroups: [""]
+      resources: ["secrets", "configmaps"]
+      verbs: ["create"]
+
+    --
+
+    apiVersion: v1
+    kind: RoleBinding
+    metadata:
+      name: processer
+      namespace: namespaceName
+    subjects:
+    - kind: ServiceAccount
+      name: processer
+      apiGroup: ""
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: Role
+      name: processer
