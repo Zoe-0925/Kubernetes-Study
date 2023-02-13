@@ -10,5 +10,37 @@
 ### Write a non-kubectl command to display the current context into a file
     bash /path_to_file.sh
 
+## Question 2
+### Create a single pod
+#### Image Name: image_name
+#### Namespace: default 
+#### Pod Name: pod-1
+#### Container Name: pod1-container
+#### This pod should only be scheduled on a master node.
+    kubectl run pod1 --image=image_name dry-run=client -o yaml > question2.yaml
 
+Then open the yaml file and edit the variable names.
+    apiVersion: 1
+    kind: pod
+    metadata:
+      creationTimestamp: null
+      labels: 
+        run: pod1
+      name: pod1
+    spec:
+      nodeName: cluster1-master1
+      containers:
+      - image: image_name
+        name: pod1-container
+        resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+    status: {}
+
+Then create the file:
+
+    kubectl apply -f question2.yaml
+
+### Explain why this pod is not scheduled to master by default
+Because taints are applied to master by default.
 
