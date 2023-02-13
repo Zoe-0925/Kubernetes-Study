@@ -237,3 +237,35 @@ Change the pod name and image name via the yaml file edit.
       apiGroup: rbac.authorization.k8s.io
       kind: Role
       name: processer
+
+## Question 11
+### Create a daemonset named "ds-important"
+image: imageName
+label: id=ds-important
+uuid: 1111
+cpu: 10 milicore
+memory: 10 mebibyte
+Run on all nodes: master & worker
+
+    apiVersion: apps/v1
+    kind: DaemonSet
+    metadata:
+      name: ds-important
+      namespace: namespaceName
+      labels:
+        id: ds-important
+        uuid: 1111
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: ds-important
+        image: imageName
+        resources:
+          requests:
+            cpu: 10m
+            memory: 10Mi
+
+## Question 12
