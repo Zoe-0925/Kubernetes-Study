@@ -122,7 +122,9 @@ Bound to the PV correctly
 
 ### Create a deployment in namespacce namespaceName
 deployment name: deploymentName.
+
 Mount that volume at path-to-mount.
+
 Image for the pod: imageName.
 
     kubectl create deployment deploymentName -n namespaceName --image imageName --dry-run=client -o yaml > question6.yaml
