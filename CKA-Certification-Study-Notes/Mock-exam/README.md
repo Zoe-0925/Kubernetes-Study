@@ -129,8 +129,6 @@ Image for the pod: imageName.
 
     kubectl create deployment deploymentName -n namespaceName --image imageName --dry-run=client -o yaml > question6.yaml
 
-Dry run; print the corresponding API objects without creating them.
-
     vi question6.yaml
 
     #Add pv
