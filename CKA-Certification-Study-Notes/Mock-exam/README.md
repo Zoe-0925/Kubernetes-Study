@@ -443,7 +443,9 @@ Check if it has Endpoints and if it's reachable through the cluster3-master1 int
               memory: "20Mi"
               cpu: "20Mi"
 
-    ---
+    cd /
+
+    vi nodePort.yaml
 
     apiVersion: v1
     kind: Service
@@ -457,6 +459,24 @@ Check if it has Endpoints and if it's reachable through the cluster3-master1 int
         - port: 80
           targetPort: 80
           nodePort: 30007
+
+## Question 18
+### A node is running on the old K8S version and is not added to the cluster.
+Upgrade the node version and add it to the cluster.
+
+    sudo apt-get update && \
+    sudo apt-get install -y --allow-change-held-packages kubeadm=1.22.2-00
+    kubeadm version  
+
+    sudo kubeadm upgrade node
+
+    sudo apt-get update && \
+    sudo apt-get install -y --allow-change-held-packages kubelet=1.22.2-00 kubectl=1.22.2-00
+
+    sudo systemctl daemon-reload
+    sudo systemctl restart kubelet
+
+    kubectl uncordon k8s-worker1
 
 
 
