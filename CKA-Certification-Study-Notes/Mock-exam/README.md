@@ -13,11 +13,7 @@
 
 ## Question 2
 ### Create a single pod
-- Image Name: image_name
-- Namespace: default 
-- Pod Name: pod-1
-- Container Name: pod1-container
-- This pod should only be scheduled on a master node.
+This pod should only be scheduled on a master node.
 
     kubectl run pod1 --image=image_name dry-run=client -o yaml > question2.yaml
 
