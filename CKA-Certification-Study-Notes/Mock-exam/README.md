@@ -66,13 +66,13 @@ Configure a readiness probe which does check if the url is reachable. Use
 ## Question 5
 ### Write a command into a file to list all pods sorted by age (metadata.creationTimestamp) - use kubectl sorting
     
-    echo 'kubectl get pods -A --sort-by metadata.creationTimestamp' > file1.sh
+    echo 'kubectl get pods -A --sort-by=.metadata.creationTimestamp' > file1.sh
 
     bash file1.sh
 
 ### Write a second comment into a file to list all pods sorted by field metadata.uid - use kubectl sorting
     
-    echo 'kubectl get pods -A --sort-by metadata.uid' > file2.sh
+    echo 'kubectl get pods -A --sort-by=.metadata.uid' > file2.sh
 
     bash file2.sh
 
