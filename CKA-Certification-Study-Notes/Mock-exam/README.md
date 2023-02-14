@@ -396,4 +396,15 @@ The `crictl ps` command retrieves information about containers that are running 
     crictl logs containerId
 
 ## Question 17
-###    
+### Troubleshoot the kubelet not running on cluster3-worker1.
+Fix it and get it in ready state. It should be able to schedule a pod afterwards.
+Write the reason into a file.
+
+    ssh cluster3-worker1
+
+    sudo systemctl status kubelet
+
+    cd /var/lib/kubelet
+    vi config.yaml
+    # Troubleshoot the kubelet yaml file.
+    # TODO
