@@ -378,5 +378,22 @@ Find the project-* Namespace with the highest number of Roles defined in it and 
     kubectl get roles -n namespaceName --no-headers | wc -l
 
 ## Question 16
-### 
+### In namespace, create a pod with name p1, image image1, with labels pod=container. 
+Find out on which node, the pod is scheduled.
+Ssh into that node and find the containerd container belonging to tha pod.
+Use command crictl:
+Write the ID of the container and the info.runtimeType into a file.
 
+The `crictl ps` command retrieves information about containers that are running in a Kubernetes cluster using the Containerd runtime.
+
+    # Create the pod
+    kubectl run podName -n namespaceName --image=imageName --labels=pod=container --labels=container=pod
+
+    crictl ps
+    # Then find the container whose pod name is our podname. Get its ID.
+
+    # To write the logs of the container
+    crictl logs containerId
+
+## Question 17
+###    
