@@ -427,14 +427,36 @@ Check if it has Endpoints and if it's reachable through the cluster3-master1 int
     apiVersion: v1
     kind: Pod
     metadata:
-      name: static-web
+      name: my-static-pod
       labels:
-        role: myrole
+        run: my-static-pod
     spec:
       containers:
-        - name: web
-          image: nginx
+        - name: my-static-pod
+          image: imageName
           ports:
             - name: web
               containerPort: 80
               protocol: TCP
+          resources:
+            requests:
+              memory: "20Mi"
+              cpu: "20Mi"
+
+    ---
+
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: my-service
+    spec:
+      type: NodePort
+      selector:
+        run: my-static-pod
+      ports:
+        - port: 80
+          targetPort: 80
+          nodePort: 30007
+
+
+
