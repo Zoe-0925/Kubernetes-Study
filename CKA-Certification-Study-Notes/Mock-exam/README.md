@@ -408,3 +408,33 @@ Write the reason into a file.
     vi config.yaml
     # Troubleshoot the kubelet yaml file.
     # TODO
+
+## Question 18
+## Create a static pod in namespace on cluster3-master1. 
+Image.
+CPU: 10m
+memory: 20Mi
+Create a NodePort Service named serviceName which exposes the static pod on port 80.
+Check if it has Endpoints and if it's reachable through the cluster3-master1 internal IP address.
+
+    ssh cluster3-master1
+    cd /etc/kubernetes/manifests
+
+    kubectl run my-static-pod --image=imageName --dry-run=client -o yaml > my-static-pod.yaml
+
+    vi my-static-pod.yaml
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: static-web
+      labels:
+        role: myrole
+    spec:
+      containers:
+        - name: web
+          image: nginx
+          ports:
+            - name: web
+              containerPort: 80
+              protocol: TCP
