@@ -335,3 +335,35 @@ Exlcude etcd, scheduler, proxy and you will find the CNI.
     # Get configMap
     kubectl get cm -n namespaceName
 
+## Question 14
+### Use kubectl to find the latest events in the cluster, order by time
+### Kill the kube proxy pod running on node cluster2-worker1 and write the events this caused
+### Kill the containerd container of the kube-proxy Pod on node cluster2-worker1 and write the events
+
+    kubectl get events
+
+    # From the cheatsheet
+    kubectl get events --sort-by=.metadata.creationTimestamp > file1.sh
+
+    bash file1.sh
+
+    # To kill the kube-proxy Pod on node cluster2-worker1
+    # Delete the kube-proxy on cluster2-worker1
+    kubectl get cm -n namespaceName
+
+    kubectl delete cm kube-proxy -n namespaceName
+
+    # Verify it's been killed
+    kubectl get pods -n namespaceName
+
+    # To kill the containerd container
+    # First view containerd status
+    sudo systemctl status containerd
+
+    # Use the stop command to kill the containerd
+    sudo systemctl stop containerd
+
+## Question 15
+
+
+
