@@ -364,6 +364,19 @@ Exlcude etcd, scheduler, proxy and you will find the CNI.
     sudo systemctl stop containerd
 
 ## Question 15
+### Create a new namespace cka-master
+Write the names of all namespaced resources (e.g. Pod, secret, configMap, etc) into a file.
+Find the project-* Namespace with the highest number of Roles defined in it and write its name and amount of roles into anothe file.
 
+    kubectl create ns cka-master
 
+    kubectl api-resources --namespaced=true | awk {'print $1} > file1.txt
+
+    kubectl get ns
+
+    # For each project-* Namespace
+    kubectl get roles -n namespaceName --no-headers | wc -l
+
+## Question 16
+### 
 
