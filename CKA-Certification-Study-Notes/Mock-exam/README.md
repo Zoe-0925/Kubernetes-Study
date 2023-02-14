@@ -5,9 +5,10 @@
     kubectl config get-contexts > /path_to_file
 
 ### Write a kubectl command to display the current context into a file
-    echo 'kubectl config current-context' > /path_to_file.sh
+    kubectl config current-context
 
 ### Write a non-kubectl command to display the current context into a file
+    echo 'kubectl config current-context' > /path_to_file.sh
     bash /path_to_file.sh
 
 ## Question 2
