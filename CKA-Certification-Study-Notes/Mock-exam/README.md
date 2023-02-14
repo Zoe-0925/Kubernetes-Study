@@ -17,7 +17,8 @@ This pod should only be scheduled on a master node.
 
     kubectl run pod1 --image=image_name dry-run=client -o yaml > question2.yaml
 
-Then open the yaml file and edit the variable names.
+    vi question2.yaml
+
     apiVersion: 1
     kind: pod
     metadata:
