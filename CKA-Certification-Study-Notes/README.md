@@ -60,7 +60,10 @@ Tutorial in [Storage](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA
 - Persistent Volumes
 - Scaling Persisiten Volumes with Claim Expansion
 
-## 10. Exam Cheat Sheet
+## 12. Mock Exam
+[With answers](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Mock-exam)
+
+## 11. Exam Cheat Sheet
 
 ## Inspect the Pods
 ### Count the Number of Nodes That Are Ready to Run Normal Workloads
