@@ -60,7 +60,7 @@ Tutorial in [Storage](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA
 - Persistent Volumes
 - Scaling Persisiten Volumes with Claim Expansion
 
-## 12. Mock Exam
+## 10. Mock Exam
 [With answers](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Mock-exam)
 
 ## 11. Exam Cheat Sheet
