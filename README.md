@@ -2,7 +2,7 @@
 This repo contains the common Kubernetes lab codes grouped by certifications.
 
 ## Kubernetes CKA Certification
-### [Cheat Sheet](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes) | [Mock Exam](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Mock-exam)
+### [Cheat Sheet](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes) | [Mock Exam](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Mock-exam) | [External Guides](https://github.com/alijahnas/CKA-practice-exercises)
 - [Kubernetes Cluster Setup Using Kubeadm](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Kubernetes%20Cluster%20Setup%20Using%20Kubeadm)
 - [Kubernetes Namespaces](https://github.com/Zoe-0925/Kubernetes-Study/blob/main/CKA-Certification-Study-Notes/Kubernetes-namespaces.sh)
 - [Upgradation with kubeadm](https://github.com/Zoe-0925/Kubernetes-Study/tree/main/CKA-Certification-Study-Notes/Upgrade-with-kubeadm)
